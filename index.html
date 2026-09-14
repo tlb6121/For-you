@@ -1,12 +1,11 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Confession</title>
+    <title>CONFESSION</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,14 +13,12 @@
 <body>
 
     <!-- =========================
-         INTRO
+         ENVELOPE INTRO
     ========================== -->
 
     <div class="intro" id="intro">
 
         <div class="intro-content">
-
-            <!-- ENVELOPE -->
 
             <div class="envelope" id="envelope">
 
@@ -33,30 +30,26 @@
 
                     <p>
                         I have something
-                        I've been wanting
                         to tell you...
                     </p>
 
-                    <span>♥</span>
+                    <div>♥</div>
 
                 </div>
 
 
-                <!-- ENVELOPE BODY -->
+                <!-- ENVELOPE -->
 
-                <div class="envelope-back"></div>
+                <div class="envelope-body"></div>
 
-
-                <!-- ENVELOPE FLAP -->
-
-                <div class="flap"></div>
+                <div class="envelope-flap"></div>
 
 
-                <!-- HEART -->
+                <!-- HEART BUTTON -->
 
-                <div class="heart">
+                <button class="heart" id="heart">
                     ♥
-                </div>
+                </button>
 
             </div>
 
@@ -67,8 +60,8 @@
                 Some feelings are meant to be said.
             </p>
 
-            <p class="click">
-                CLICK THE ENVELOPE
+            <p class="instruction">
+                CLICK THE HEART
             </p>
 
         </div>
@@ -77,48 +70,48 @@
 
 
     <!-- =========================
-         YOUR MESSAGE
+         MESSAGE
     ========================== -->
 
-    <section class="message-page" id="messagePage">
+    <div class="message-page" id="messagePage">
 
-        <div class="message-box">
+        <div class="message-card">
 
-            <div class="big-heart">
+            <div class="heart-title">
                 ♥
             </div>
 
             <h1>Dear You,</h1>
 
-            <div class="line"></div>
+            <div class="divider"></div>
 
 
             <!-- =================================
-                 ✏️ PUT YOUR MESSAGE HERE
+                 ✏️ CHANGE YOUR MESSAGE HERE
             ================================== -->
 
             <p class="my-message">
 
-                Hey...
+Hey...
 
-                There is something I've been
-                wanting to tell you for a long time.
+I've been wanting to say this
+for a long time.
 
-                I don't really know how to say it,
-                so I decided to write it here.
+I don't really know how to say it,
+so I decided to write it here.
 
-                You are someone very special to me.
+You are someone very special to me.
 
-                Thank you for being part of my life.
+Thank you for being part of my life.
 
-                I hope you know how much
-                you mean to me. ❤️
+I hope you know how much
+you mean to me. ❤️
 
             </p>
 
 
             <!-- =================================
-                 ✏️ PUT YOUR NAME HERE
+                 ✏️ CHANGE YOUR SIGNATURE
             ================================== -->
 
             <p class="signature">
@@ -127,12 +120,13 @@
 
         </div>
 
-    </section>
+    </div>
 
+
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
 </body>
-
 </html>
 ```
