@@ -1,8 +1,4 @@
 ```css
-/* =========================
-   RESET
-========================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -10,147 +6,113 @@
 }
 
 
-/* =========================
-   BODY
-========================= */
-
 body {
-
-    font-family: Georgia, serif;
-
     background: #faf5f4;
-
     color: #302727;
-
+    font-family: Georgia, serif;
     overflow-x: hidden;
 }
 
 
-/* =========================
+/* =================================
    INTRO
-========================= */
+================================= */
 
 .intro {
-
     position: fixed;
-
     inset: 0;
 
-    z-index: 100;
-
     display: flex;
-
-    justify-content: center;
-
     align-items: center;
+    justify-content: center;
 
     text-align: center;
 
-    background:
-        linear-gradient(
-            135deg,
-            #fff7f6,
-            #f0d9d6
-        );
+    background: linear-gradient(
+        135deg,
+        #fff8f7,
+        #efd9d6
+    );
 
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
+    z-index: 10;
+
+    transition: opacity 1s ease;
 }
 
 
 .intro.hide {
-
     opacity: 0;
-
-    visibility: hidden;
-
     pointer-events: none;
 }
 
 
 .intro-content {
-
     width: 100%;
 }
 
 
-/* =========================
+/* =================================
    ENVELOPE
-========================= */
+================================= */
 
 .envelope {
-
     position: relative;
 
     width: 320px;
-
     height: 210px;
 
     margin: auto;
 
     cursor: pointer;
-
-    animation: float 3s ease-in-out infinite;
-
-    filter:
-        drop-shadow(
-            0 20px 25px
-            rgba(70,30,30,.2)
-        );
 }
 
 
-/* Envelope back */
+/* Envelope body */
 
-.envelope-back {
-
+.envelope-body {
     position: absolute;
 
-    inset: 0;
+    width: 100%;
+    height: 100%;
 
-    background: #dcb6b2;
+    background: #dcb5b1;
 
-    border-radius: 5px;
+    border-radius: 6px;
 
-    z-index: 1;
+    z-index: 2;
+
+    box-shadow:
+        0 20px 40px rgba(70, 30, 30, .2);
 }
 
 
-/* =========================
+/* =================================
    LETTER
-========================= */
+================================= */
 
 .letter {
-
     position: absolute;
 
-    left: 10%;
+    width: 82%;
+    height: 82%;
 
+    left: 9%;
     bottom: 5%;
 
-    width: 80%;
-
-    height: 80%;
-
-    background: #fffdf8;
+    background: white;
 
     padding: 25px 15px;
 
     text-align: center;
 
-    z-index: 2;
-
-    border-radius: 3px;
+    z-index: 1;
 
     transition:
-        transform 1s
-        cubic-bezier(.2,.8,.2,1);
+        transform 1s ease;
 }
 
 
 .letter h2 {
-
     font-size: 18px;
 
     margin-bottom: 12px;
@@ -158,104 +120,87 @@ body {
 
 
 .letter p {
-
     font-family: Arial, sans-serif;
 
     font-size: 11px;
 
     line-height: 1.6;
 
-    color: #776767;
-
-    white-space: pre-line;
+    color: #777;
 }
 
 
-.letter span {
-
-    display: block;
-
-    margin-top: 10px;
-
-    color: #d84c5c;
+.letter div {
+    color: #d94d5d;
 
     font-size: 20px;
+
+    margin-top: 10px;
 }
 
 
-/* =========================
-   ENVELOPE FLAP
-========================= */
+/* =================================
+   FLAP
+================================= */
 
-.flap {
-
+.envelope-flap {
     position: absolute;
 
+    left: 0;
     top: 0;
 
-    left: 0;
-
     width: 100%;
-
     height: 100%;
 
-    background: #edceca;
+    background: #edcfcb;
 
-    clip-path:
-        polygon(
-            0 0,
-            50% 55%,
-            100% 0
-        );
+    clip-path: polygon(
+        0 0,
+        50% 55%,
+        100% 0
+    );
 
-    transform-origin: top;
+    transform-origin: top center;
 
     transition:
-        transform 1s
-        cubic-bezier(.65,0,.35,1);
+        transform 1s ease;
 
-    z-index: 5;
+    z-index: 4;
 }
 
 
-/* =========================
+/* =================================
    HEART
-========================= */
+================================= */
 
 .heart {
-
     position: absolute;
 
     left: 50%;
-
     top: 50%;
 
     transform:
         translate(-50%, -50%);
 
-    width: 55px;
+    width: 58px;
+    height: 58px;
 
-    height: 55px;
-
-    background: #d84c5c;
-
-    color: white;
+    border: none;
 
     border-radius: 50%;
 
-    z-index: 10;
+    background: #d94d5d;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
+    color: white;
 
     font-size: 25px;
 
+    z-index: 6;
+
+    cursor: pointer;
+
     box-shadow:
-        0 8px 20px
-        rgba(180,50,65,.3);
+        0 8px 20px rgba(170, 40, 60, .3);
 
     transition:
         transform .5s ease,
@@ -263,51 +208,42 @@ body {
 }
 
 
-/* =========================
-   OPEN
-========================= */
-
-.envelope.open {
-
-    animation: none;
+.heart:hover {
+    transform:
+        translate(-50%, -50%)
+        scale(1.1);
 }
 
 
-.envelope.open .flap {
+/* =================================
+   OPEN ANIMATION
+================================= */
 
-    transform:
-        rotateX(180deg);
-
-    z-index: 1;
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
 }
 
 
 .envelope.open .letter {
-
-    transform:
-        translateY(-130px);
-
-    z-index: 7;
+    transform: translateY(-135px);
 }
 
 
 .envelope.open .heart {
+    opacity: 0;
 
     transform:
         translate(-50%, -50%)
         scale(0);
-
-    opacity: 0;
 }
 
 
-/* =========================
+/* =================================
    INTRO TEXT
-========================= */
+================================= */
 
 .intro h1 {
-
-    margin-top: 50px;
+    margin-top: 55px;
 
     font-family: Arial, sans-serif;
 
@@ -315,28 +251,22 @@ body {
         clamp(40px, 8vw, 75px);
 
     letter-spacing: 8px;
-
-    font-weight: 800;
 }
 
 
 .subtitle {
-
-    margin-top: 10px;
-
-    color: #8c7777;
+    margin-top: 12px;
 
     font-family: Arial, sans-serif;
+
+    color: #8c7777;
 
     font-size: 14px;
 }
 
 
-.click {
-
+.instruction {
     margin-top: 25px;
-
-    color: #8c7777;
 
     font-family: Arial, sans-serif;
 
@@ -344,30 +274,30 @@ body {
 
     letter-spacing: 2px;
 
-    animation:
-        pulse 2s infinite;
+    color: #8c7777;
+
+    animation: pulse 2s infinite;
 }
 
 
-/* =========================
+/* =================================
    MESSAGE PAGE
-========================= */
+================================= */
 
 .message-page {
-
     min-height: 100vh;
 
     display: flex;
 
-    justify-content: center;
-
     align-items: center;
+
+    justify-content: center;
 
     padding: 40px 20px;
 
     opacity: 0;
 
-    transform: translateY(30px);
+    transform: translateY(40px);
 
     transition:
         opacity 1s ease,
@@ -376,15 +306,13 @@ body {
 
 
 .message-page.show {
-
     opacity: 1;
 
     transform: translateY(0);
 }
 
 
-.message-box {
-
+.message-card {
     width: min(700px, 95%);
 
     background: white;
@@ -397,30 +325,20 @@ body {
     text-align: center;
 
     box-shadow:
-        0 20px 60px
-        rgba(60,30,30,.1);
+        0 20px 60px rgba(50, 25, 25, .1);
 }
 
 
-/* =========================
-   MESSAGE
-========================= */
+.heart-title {
+    color: #d94d5d;
 
-.big-heart {
-
-    color: #d84c5c;
-
-    font-size: 28px;
+    font-size: 30px;
 
     margin-bottom: 15px;
-
-    animation:
-        heartbeat 1.5s infinite;
 }
 
 
-.message-box h1 {
-
+.message-card h1 {
     font-size:
         clamp(32px, 6vw, 55px);
 
@@ -428,160 +346,87 @@ body {
 }
 
 
-.line {
-
+.divider {
     width: 60px;
 
     height: 2px;
 
-    background: #dcb6b2;
+    background: #dcb5b1;
 
     margin: 25px auto;
 }
 
 
 .my-message {
-
     font-family: Arial, sans-serif;
-
-    color: #5e5151;
 
     font-size:
         clamp(14px, 2vw, 17px);
 
     line-height: 2;
 
+    color: #5d5151;
+
     white-space: pre-line;
 }
 
 
 .signature {
-
     margin-top: 35px;
 
-    color: #967979;
+    color: #987878;
 
     font-style: italic;
-
-    font-size: 16px;
 }
 
 
-/* =========================
+/* =================================
    ANIMATIONS
-========================= */
-
-@keyframes float {
-
-    0%, 100% {
-
-        transform:
-            translateY(0);
-    }
-
-    50% {
-
-        transform:
-            translateY(-10px);
-    }
-}
-
+================================= */
 
 @keyframes pulse {
 
     0%, 100% {
-
         opacity: .5;
     }
 
     50% {
-
         opacity: 1;
     }
 }
 
 
-@keyframes heartbeat {
-
-    0%, 100% {
-
-        transform: scale(1);
-    }
-
-    15% {
-
-        transform: scale(1.15);
-    }
-
-    30% {
-
-        transform: scale(1);
-    }
-}
-
-
-/* =========================
+/* =================================
    MOBILE
-========================= */
+================================= */
 
 @media (max-width: 600px) {
 
     .envelope {
-
         width: 280px;
-
         height: 185px;
     }
 
-
     .envelope.open .letter {
-
-        transform:
-            translateY(-110px);
+        transform: translateY(-115px);
     }
-
-
-    .heart {
-
-        width: 50px;
-
-        height: 50px;
-
-        font-size: 22px;
-    }
-
 
     .intro h1 {
-
         font-size: 34px;
-
         letter-spacing: 5px;
-
-        margin-top: 45px;
     }
 
-
     .subtitle {
-
         font-size: 11px;
     }
 
-
-    .message-box {
-
-        padding:
-            40px 22px;
-
-        border-radius: 20px;
+    .message-card {
+        padding: 40px 22px;
     }
-
 
     .my-message {
-
         font-size: 14px;
-
         line-height: 1.9;
     }
-
 }
 ```
