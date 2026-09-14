@@ -4,111 +4,125 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <!-- Makes the website responsive on phones -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>My Confession</title>
 
-    <!-- Connect CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <!-- =========================
-         INTRO / ENVELOPE
+         INTRO
     ========================== -->
 
-    <section class="intro" id="intro">
+    <div class="intro" id="intro">
 
         <div class="intro-content">
 
-            <!-- Envelope -->
-            <div
-                class="envelope-wrapper"
-                id="envelope"
-                onclick="openEnvelope()"
-            >
+            <!-- ENVELOPE -->
 
-                <div class="envelope">
+            <div class="envelope" id="envelope">
 
-                    <!-- Letter -->
-                    <div class="letter">
+                <!-- LETTER -->
 
-                        <div class="letter-content">
+                <div class="letter">
 
-                            <div class="small-heart">
-                                ♥
-                            </div>
+                    <h2>Dear You,</h2>
 
-                            <h2>Dear You,</h2>
+                    <p>
+                        I have something
+                        I've been wanting
+                        to tell you...
+                    </p>
 
-                            <!-- =================================
-                                 YOUR MESSAGE
-                                 CHANGE THIS TEXT
-                            ================================== -->
+                    <span>♥</span>
 
-                            <p class="message">
-
-                                Hey...
-
-                                There is something I've been
-                                wanting to tell you for a while.
-
-                                I don't really know how to say it,
-                                so I decided to write it here.
-
-                                Thank you for being someone
-                                who means so much to me.
-
-                                I hope you know that you are
-                                truly special to me. ❤️
-
-                            </p>
-
-                            <!-- YOUR SIGNATURE -->
-
-                            <p class="signature">
-                                — From someone who cares
-                            </p>
-
-                        </div>
-
-                    </div>
+                </div>
 
 
-                    <!-- Envelope flap -->
+                <!-- ENVELOPE BODY -->
 
-                    <div class="envelope-flap"></div>
-
-
-                    <!-- Envelope bottom -->
-
-                    <div class="envelope-pocket"></div>
+                <div class="envelope-back"></div>
 
 
-                    <!-- Heart -->
+                <!-- ENVELOPE FLAP -->
 
-                    <div class="heart"></div>
+                <div class="flap"></div>
 
+
+                <!-- HEART -->
+
+                <div class="heart">
+                    ♥
                 </div>
 
             </div>
 
 
-            <!-- Intro title -->
-
-            <h1>
-                CONFESSION
-            </h1>
+            <h1>CONFESSION</h1>
 
             <p class="subtitle">
                 Some feelings are meant to be said.
             </p>
 
-            <p class="click-text">
-                CLICK THE ENVELOPE ❤️
+            <p class="click">
+                CLICK THE ENVELOPE
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         YOUR MESSAGE
+    ========================== -->
+
+    <section class="message-page" id="messagePage">
+
+        <div class="message-box">
+
+            <div class="big-heart">
+                ♥
+            </div>
+
+            <h1>Dear You,</h1>
+
+            <div class="line"></div>
+
+
+            <!-- =================================
+                 ✏️ PUT YOUR MESSAGE HERE
+            ================================== -->
+
+            <p class="my-message">
+
+                Hey...
+
+                There is something I've been
+                wanting to tell you for a long time.
+
+                I don't really know how to say it,
+                so I decided to write it here.
+
+                You are someone very special to me.
+
+                Thank you for being part of my life.
+
+                I hope you know how much
+                you mean to me. ❤️
+
+            </p>
+
+
+            <!-- =================================
+                 ✏️ PUT YOUR NAME HERE
+            ================================== -->
+
+            <p class="signature">
+                — From someone who cares
             </p>
 
         </div>
@@ -116,67 +130,9 @@
     </section>
 
 
-    <!-- =========================
-         MAIN MESSAGE
-    ========================== -->
-
-    <main class="main-page" id="mainPage">
-
-        <div class="main-content">
-
-            <div class="main-heart">
-                ♥
-            </div>
-
-            <h1>
-                My Confession
-            </h1>
-
-            <div class="divider"></div>
-
-
-            <!-- =================================
-                 YOUR BIG MESSAGE
-                 CHANGE THIS TEXT
-            ================================== -->
-
-            <p class="main-message">
-
-                Hey.
-
-                If you're reading this,
-                it means you opened the letter.
-
-                There are some things that are
-                difficult to say face to face.
-
-                So I decided to leave these words here.
-
-                I just want you to know that
-                you are important to me.
-
-                Thank you for every moment,
-                every conversation,
-                and every memory.
-
-                Whatever happens,
-                I'll always appreciate you.
-
-            </p>
-
-
-            <p class="final-message">
-                With all my heart, ❤️
-            </p>
-
-        </div>
-
-    </main>
-
-
-    <!-- Connect JavaScript -->
     <script src="script.js"></script>
 
 </body>
+
 </html>
 ```
