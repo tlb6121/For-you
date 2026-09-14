@@ -1,10 +1,9 @@
 ```javascript
-/* =========================
-   ENVELOPE CLICK
-========================= */
-
 const envelope =
     document.getElementById("envelope");
+
+const heart =
+    document.getElementById("heart");
 
 const intro =
     document.getElementById("intro");
@@ -13,29 +12,41 @@ const messagePage =
     document.getElementById("messagePage");
 
 
-envelope.addEventListener("click", function () {
+/*
+    CLICK HEART
+*/
 
-    /* Open envelope */
+heart.addEventListener("click", function (event) {
+
+    /*
+        Prevent the click from
+        doing anything else.
+    */
+
+    event.stopPropagation();
+
+
+    /*
+        OPEN ENVELOPE
+    */
 
     envelope.classList.add("open");
 
 
     /*
-        Wait for the envelope
-        animation to finish.
+        After the letter comes out,
+        hide the intro.
     */
 
     setTimeout(function () {
 
-        /* Hide intro */
-
         intro.classList.add("hide");
 
-    }, 1700);
+    }, 1800);
 
 
     /*
-        Show your message
+        Show the actual message.
     */
 
     setTimeout(function () {
