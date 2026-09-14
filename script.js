@@ -1,28 +1,19 @@
 ```javascript
-/* =================================
-   OPEN ENVELOPE
-================================= */
+/* =========================
+   ENVELOPE CLICK
+========================= */
 
-function openEnvelope() {
+const envelope =
+    document.getElementById("envelope");
 
-    const envelope =
-        document.getElementById("envelope");
+const intro =
+    document.getElementById("intro");
 
-    const intro =
-        document.getElementById("intro");
-
-    const mainPage =
-        document.getElementById("mainPage");
+const messagePage =
+    document.getElementById("messagePage");
 
 
-    /* Prevent clicking again */
-
-    if (
-        envelope.classList.contains("open")
-    ) {
-        return;
-    }
-
+envelope.addEventListener("click", function () {
 
     /* Open envelope */
 
@@ -30,28 +21,28 @@ function openEnvelope() {
 
 
     /*
-       Wait until the letter
-       comes out of the envelope.
+        Wait for the envelope
+        animation to finish.
     */
 
-    setTimeout(() => {
+    setTimeout(function () {
 
-        /* Fade out intro */
+        /* Hide intro */
 
         intro.classList.add("hide");
 
-    }, 1800);
+    }, 1700);
 
 
     /*
-       Show your message
+        Show your message
     */
 
-    setTimeout(() => {
+    setTimeout(function () {
 
-        mainPage.classList.add("show");
+        messagePage.classList.add("show");
 
-    }, 2200);
+    }, 2100);
 
-}
+});
 ```
