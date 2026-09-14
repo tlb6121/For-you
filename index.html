@@ -1,168 +1,55 @@
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- LETTER INSIDE THE ENVELOPE -->
 
-<title>CONFESSION</title>
+<div class="letter">
 
-<style>
+    <div class="letter-content">
+
+        <div class="letter-top-heart">
+            ♥
+        </div>
+
+        <h2>Dear You,</h2>
+
+        <p class="my-message">
+            Hi, Angela,
+
+            I have something I've been wanting to say
+            for a long time.
+
+            I don't really know how to say it,
+            so I decided to write it here.
+
+            I do like you Angela, katong first sulod nako 
+            sa church were na attract ko sa imong ka gwapa og
+            ka cutetan hehehe, pero mas ge una nako c Lord kay
+            mao akong kailangan e build which is among relationship
+            but then through time na nag uban nami ni Lord, nag pray 
+            ko niya about a partner of life, where I can share all my happenings
+            na nahitabo saakong life, and also comforter, and also pag e treat nako
+            siya like a queen, pati pod saako na e treat pod ko niya like a king,
+            also same vibe hahaha. Tapos after ato sakong prayer, mga 1 week after ato,
+            katong nag usher nako sa 2nd floor, ikw permi akong ma notice dadto sa child ministry
+            teacher, then wa rapod nako ge seryuso pero kay abi ko naa kay uyab na.
+
+            Thank you for being you. ❤️
+        </p>
+
+        <p class="signature">
+            — From someone who cares
+        </p>
+
+    </div>
+
+</div>
+```
+
+And add this CSS:
+
+```css
 /* =========================
-   RESET
+   YOUR PERSONAL LETTER
 ========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Georgia, "Times New Roman", serif;
-    background: #faf7f5;
-    color: #292323;
-    overflow-x: hidden;
-}
-
-/* =========================
-   INTRO SCREEN
-========================= */
-
-.intro {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background:
-        radial-gradient(circle at center, #fff4f3 0%, #f8e7e5 45%, #ead2d0 100%);
-
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
-}
-
-.intro.hide {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.intro-content {
-    text-align: center;
-    width: 90%;
-}
-
-.intro-title {
-    margin-top: 45px;
-
-    font-family: Arial, sans-serif;
-    font-size: clamp(28px, 5vw, 55px);
-    letter-spacing: 10px;
-    font-weight: 700;
-
-    animation: fadeUp 1s ease forwards;
-}
-
-.intro-subtitle {
-    margin-top: 12px;
-    color: #8c7777;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    letter-spacing: 2px;
-
-    animation: fadeUp 1.4s ease forwards;
-}
-
-/* =========================
-   ENVELOPE
-========================= */
-
-.envelope-wrapper {
-    position: relative;
-
-    width: min(330px, 78vw);
-    height: 220px;
-
-    margin: auto;
-
-    cursor: pointer;
-
-    perspective: 1000px;
-
-    animation: envelopeFloat 3s ease-in-out infinite;
-}
-
-.envelope {
-    position: absolute;
-    inset: 0;
-
-    background: #e8c9c5;
-
-    border-radius: 5px;
-
-    box-shadow:
-        0 25px 50px rgba(75, 35, 35, 0.18);
-
-    overflow: visible;
-}
-
-/* Front triangular flap */
-
-.envelope-flap {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: #f0d5d1;
-
-    clip-path: polygon(
-        0 0,
-        50% 55%,
-        100% 0
-    );
-
-    transform-origin: top center;
-
-    transition:
-        transform 1s cubic-bezier(.65,0,.35,1);
-
-    z-index: 5;
-}
-
-/* Bottom envelope pocket */
-
-.envelope-pocket {
-    position: absolute;
-
-    bottom: 0;
-    left: 0;
-
-    width: 100%;
-    height: 72%;
-
-    background: #dfbab6;
-
-    clip-path: polygon(
-        0 0,
-        50% 55%,
-        100% 0,
-        100% 100%,
-        0 100%
-    );
-
-    z-index: 4;
-}
-
-/* Letter */
 
 .letter {
     position: absolute;
@@ -177,7 +64,8 @@ body {
 
     border-radius: 3px;
 
-    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
 
     z-index: 2;
 
@@ -185,907 +73,55 @@ body {
     align-items: center;
     justify-content: center;
 
+    padding: 20px;
+
+    overflow: hidden;
+
     transition:
         transform 1.3s cubic-bezier(.2,.8,.2,1),
         opacity .4s ease;
 }
 
 .letter-content {
+    width: 100%;
     text-align: center;
+}
+
+.letter-top-heart {
+    color: #d94c5b;
+    font-size: 18px;
+    margin-bottom: 8px;
 }
 
 .letter-content h2 {
-    font-size: 20px;
-    letter-spacing: 4px;
+    font-size: 18px;
     margin-bottom: 10px;
-}
-
-.letter-content p {
-    font-family: Arial, sans-serif;
-    color: #999;
-    font-size: 11px;
-}
-
-.letter-heart {
-    color: #d94c5b;
-    font-size: 20px;
-    margin-top: 10px;
-}
-
-/* Heart seal */
-
-.heart {
-    position: absolute;
-
-    left: 50%;
-    top: 52%;
-
-    transform: translate(-50%, -50%) rotate(-45deg);
-
-    width: 55px;
-    height: 55px;
-
-    background: #d94c5b;
-
-    z-index: 10;
-
-    transition:
-        transform .5s ease,
-        opacity .4s ease;
-
-    box-shadow:
-        0 8px 20px rgba(180, 50, 65, .3);
-}
-
-.heart::before,
-.heart::after {
-    content: "";
-
-    position: absolute;
-
-    width: 55px;
-    height: 55px;
-
-    background: #d94c5b;
-
-    border-radius: 50%;
-}
-
-.heart::before {
-    top: -27px;
-    left: 0;
-}
-
-.heart::after {
-    top: 0;
-    left: 27px;
-}
-
-/* =========================
-   OPEN ANIMATION
-========================= */
-
-.envelope-wrapper.open {
-    animation: none;
-}
-
-.envelope-wrapper.open .envelope-flap {
-    transform: rotateX(180deg);
-    z-index: 1;
-}
-
-.envelope-wrapper.open .letter {
-    transform: translateY(-145px);
-    z-index: 8;
-}
-
-.envelope-wrapper.open .heart {
-    transform:
-        translate(-50%, -50%)
-        rotate(-45deg)
-        scale(.75);
-
-    opacity: 0;
-}
-
-.open-text {
-    margin-top: 35px;
-
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-
-    color: #8b7777;
-
     letter-spacing: 2px;
-
-    animation: pulseText 2s ease-in-out infinite;
 }
 
-/* =========================
-   MAIN WEBSITE
-========================= */
-
-.website {
-    opacity: 0;
-    transform: translateY(30px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-
-    min-height: 100vh;
-}
-
-.website.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Header */
-
-header {
-    text-align: center;
-    padding: 70px 20px 35px;
-}
-
-header .small-heart {
-    color: #d94c5b;
-    font-size: 22px;
-    margin-bottom: 15px;
-}
-
-header h1 {
+.my-message {
     font-family: Arial, sans-serif;
 
-    font-size: clamp(38px, 8vw, 75px);
+    font-size: 10px;
 
-    letter-spacing: 8px;
+    line-height: 1.6;
 
-    font-weight: 800;
+    color: #625555;
+
+    white-space: pre-line;
+
+    max-height: 110px;
+
+    overflow: hidden;
 }
 
-header p {
-    margin-top: 12px;
+.signature {
+    margin-top: 10px;
 
-    font-family: Arial, sans-serif;
+    font-size: 9px;
 
-    color: #8d7b7b;
+    color: #a58d8d;
 
-    font-size: 14px;
+    font-style: italic;
 }
-
-/* =========================
-   MAIN
-========================= */
-
-main {
-    width: min(1050px, 92%);
-    margin: auto;
-}
-
-/* Write box */
-
-.write-box {
-    background: rgba(255,255,255,.85);
-
-    border: 1px solid #eee1df;
-
-    border-radius: 22px;
-
-    padding: 28px;
-
-    box-shadow:
-        0 15px 40px rgba(75,40,40,.08);
-
-    backdrop-filter: blur(10px);
-
-    margin-bottom: 45px;
-}
-
-.write-box h2 {
-    font-size: 23px;
-    margin-bottom: 16px;
-}
-
-textarea {
-    width: 100%;
-
-    min-height: 150px;
-
-    resize: vertical;
-
-    border: 1px solid #e4d8d6;
-
-    background: #fffdfc;
-
-    border-radius: 15px;
-
-    padding: 17px;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 16px;
-
-    outline: none;
-
-    transition: .3s;
-}
-
-textarea:focus {
-    border-color: #c88989;
-
-    box-shadow:
-        0 0 0 3px rgba(200,137,137,.1);
-}
-
-.post-button {
-    margin-top: 15px;
-
-    border: none;
-
-    background: #292323;
-
-    color: white;
-
-    padding: 14px 25px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    font-family: Arial, sans-serif;
-
-    font-weight: bold;
-
-    transition: .25s;
-}
-
-.post-button:hover {
-    transform: translateY(-3px);
-
-    background: #4a3c3c;
-}
-
-.post-button:active {
-    transform: scale(.97);
-}
-
-/* =========================
-   CONFESSION CARDS
-========================= */
-
-.section-title {
-    font-size: 25px;
-
-    margin-bottom: 20px;
-}
-
-.confessions {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-
-    padding-bottom: 60px;
-}
-
-.card {
-    position: relative;
-
-    background: white;
-
-    border: 1px solid #eee4e2;
-
-    border-radius: 18px;
-
-    padding: 25px;
-
-    min-height: 190px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.05);
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-}
-
-.card:hover {
-    transform: translateY(-7px);
-
-    box-shadow:
-        0 18px 35px rgba(0,0,0,.1);
-}
-
-.card-heart {
-    color: #e07b85;
-
-    font-size: 17px;
-
-    margin-bottom: 15px;
-}
-
-.card p {
-    line-height: 1.7;
-
-    color: #514747;
-
-    font-family: Arial, sans-serif;
-
-    word-wrap: break-word;
-}
-
-.card span {
-    margin-top: 20px;
-
-    color: #aaa;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 11px;
-}
-
-/* =========================
-   FLOATING HEARTS
-========================= */
-
-.floating-heart {
-    position: fixed;
-
-    bottom: -30px;
-
-    color: #d94c5b;
-
-    opacity: .25;
-
-    pointer-events: none;
-
-    animation: floatHeart linear forwards;
-
-    z-index: 0;
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes envelopeFloat {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulseText {
-
-    0%, 100% {
-        opacity: .5;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-@keyframes floatHeart {
-
-    0% {
-        transform:
-            translateY(0)
-            rotate(0deg);
-
-        opacity: 0;
-    }
-
-    10% {
-        opacity: .25;
-    }
-
-    100% {
-        transform:
-            translateY(-110vh)
-            rotate(360deg);
-
-        opacity: 0;
-    }
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 850px) {
-
-    .confessions {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 550px) {
-
-    .intro-title {
-        letter-spacing: 6px;
-        font-size: 32px;
-    }
-
-    .intro-subtitle {
-        font-size: 11px;
-    }
-
-    .envelope-wrapper {
-        width: 280px;
-        height: 185px;
-    }
-
-    .letter {
-        height: 80%;
-    }
-
-    .envelope-wrapper.open .letter {
-        transform: translateY(-120px);
-    }
-
-    .heart,
-    .heart::before,
-    .heart::after {
-        width: 45px;
-        height: 45px;
-    }
-
-    .heart::before {
-        top: -22px;
-    }
-
-    .heart::after {
-        left: 22px;
-    }
-
-    header {
-        padding-top: 50px;
-    }
-
-    header h1 {
-        letter-spacing: 5px;
-    }
-
-    .write-box {
-        padding: 20px;
-
-        border-radius: 17px;
-    }
-
-    .confessions {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        min-height: 170px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- =================================
-     INTRO
-================================= -->
-
-<section class="intro" id="intro">
-
-    <div class="intro-content">
-
-        <div
-            class="envelope-wrapper"
-            id="envelope"
-            onclick="openEnvelope()"
-        >
-
-            <div class="envelope">
-
-                <!-- Letter behind the flap -->
-                <div class="letter">
-
-                    <div class="letter-content">
-
-                        <h2>CONFESSION</h2>
-
-                        <p>
-                            Something from the heart...
-                        </p>
-
-                        <div class="letter-heart">
-                            ♥
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Envelope flap -->
-                <div class="envelope-flap"></div>
-
-                <!-- Envelope pocket -->
-                <div class="envelope-pocket"></div>
-
-                <!-- Heart seal -->
-                <div class="heart"></div>
-
-            </div>
-
-        </div>
-
-        <h1 class="intro-title">
-            CONFESSION
-        </h1>
-
-        <p class="intro-subtitle">
-            Some feelings are meant to be said.
-        </p>
-
-        <p class="open-text">
-            CLICK THE ENVELOPE TO OPEN
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =================================
-     MAIN WEBSITE
-================================= -->
-
-<div class="website" id="website">
-
-    <header>
-
-        <div class="small-heart">
-            ♥
-        </div>
-
-        <h1>
-            CONFESSION
-        </h1>
-
-        <p>
-            A place to say what you've never said.
-        </p>
-
-    </header>
-
-
-    <main>
-
-        <!-- WRITE CONFESSION -->
-
-        <section class="write-box">
-
-            <h2>
-                What's on your heart?
-            </h2>
-
-            <textarea
-                id="confessionInput"
-                placeholder="Write your confession here..."
-            ></textarea>
-
-            <button
-                class="post-button"
-                onclick="postConfession()"
-            >
-                POST CONFESSION ♥
-            </button>
-
-        </section>
-
-
-        <!-- CONFESSION LIST -->
-
-        <h2 class="section-title">
-            Recent Confessions
-        </h2>
-
-        <section
-            class="confessions"
-            id="confessionList"
-        >
-
-            <div class="card">
-
-                <div>
-
-                    <div class="card-heart">
-                        ♥
-                    </div>
-
-                    <p>
-                        I still think about someone I haven't
-                        talked to in years.
-                    </p>
-
-                </div>
-
-                <span>
-                    Anonymous • Just now
-                </span>
-
-            </div>
-
-
-            <div class="card">
-
-                <div>
-
-                    <div class="card-heart">
-                        ♥
-                    </div>
-
-                    <p>
-                        Sometimes I smile just because I
-                        remembered a good memory.
-                    </p>
-
-                </div>
-
-                <span>
-                    Anonymous • 2 hours ago
-                </span>
-
-            </div>
-
-
-            <div class="card">
-
-                <div>
-
-                    <div class="card-heart">
-                        ♥
-                    </div>
-
-                    <p>
-                        I wish I had told them how I really felt.
-                    </p>
-
-                </div>
-
-                <span>
-                    Anonymous • 5 hours ago
-                </span>
-
-            </div>
-
-        </section>
-
-    </main>
-
-</div>
-
-
-<script>
-
-/* =================================
-   OPEN ENVELOPE
-================================= */
-
-function openEnvelope() {
-
-    const envelope =
-        document.getElementById("envelope");
-
-    const intro =
-        document.getElementById("intro");
-
-    const website =
-        document.getElementById("website");
-
-    /* Prevent clicking multiple times */
-
-    if (envelope.classList.contains("open")) {
-        return;
-    }
-
-    /* Open envelope */
-
-    envelope.classList.add("open");
-
-    /* Create floating hearts */
-
-    createHearts();
-
-    /*
-       Wait for the letter animation,
-       then reveal the website.
-    */
-
-    setTimeout(() => {
-
-        intro.classList.add("hide");
-
-        website.classList.add("show");
-
-        document.body.style.overflowY = "auto";
-
-    }, 1800);
-}
-
-
-/* =================================
-   POST CONFESSION
-================================= */
-
-function postConfession() {
-
-    const input =
-        document.getElementById("confessionInput");
-
-    const list =
-        document.getElementById("confessionList");
-
-    const confession =
-        input.value.trim();
-
-
-    if (confession === "") {
-
-        input.focus();
-
-        alert("Write something first ❤️");
-
-        return;
-    }
-
-
-    /* Create card */
-
-    const card =
-        document.createElement("div");
-
-    card.className = "card";
-
-
-    card.innerHTML = `
-
-        <div>
-
-            <div class="card-heart">
-                ♥
-            </div>
-
-            <p>
-                ${escapeHTML(confession)}
-            </p>
-
-        </div>
-
-        <span>
-            Anonymous • Just now
-        </span>
-
-    `;
-
-
-    /* Put newest confession first */
-
-    list.prepend(card);
-
-
-    /* Clear textarea */
-
-    input.value = "";
-
-
-    /* Small animation */
-
-    card.style.opacity = "0";
-
-    card.style.transform =
-        "translateY(20px)";
-
-
-    setTimeout(() => {
-
-        card.style.transition =
-            "all .5s ease";
-
-        card.style.opacity = "1";
-
-        card.style.transform =
-            "translateY(0)";
-
-    }, 10);
-}
-
-
-/* =================================
-   SECURITY
-   Prevent HTML injection
-================================= */
-
-function escapeHTML(text) {
-
-    const div =
-        document.createElement("div");
-
-    div.textContent = text;
-
-    return div.innerHTML;
-}
-
-
-/* =================================
-   FLOATING HEARTS
-================================= */
-
-function createHearts() {
-
-    for (let i = 0; i < 15; i++) {
-
-        setTimeout(() => {
-
-            const heart =
-                document.createElement("div");
-
-            heart.className =
-                "floating-heart";
-
-            heart.innerHTML = "♥";
-
-            heart.style.left =
-                Math.random() * 100 + "vw";
-
-            heart.style.fontSize =
-                (10 + Math.random() * 20) + "px";
-
-            heart.style.animationDuration =
-                (4 + Math.random() * 5) + "s";
-
-            document.body.appendChild(heart);
-
-
-            setTimeout(() => {
-
-                heart.remove();
-
-            }, 9000);
-
-        }, i * 120);
-
-    }
-}
-
-</script>
-
-</body>
-</html>
 ```
